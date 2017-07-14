@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.labti.hibernate.dao;
 
 import com.labti.hibernate.model.Material; 
 import java.util.List; 
 import org.hibernate.Session; 
 import org.hibernate.SessionFactory;
-/**
- *
- * @author andhi
- */
+
 public class BarangDaoImpl implements BarangDao{
     private final SessionFactory sessionFactory; 
     public BarangDaoImpl(SessionFactory sessionFactory) { 
