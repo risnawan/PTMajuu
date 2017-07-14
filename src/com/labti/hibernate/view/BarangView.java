@@ -4,10 +4,10 @@ package com.labti.hibernate.view;
 import com.labti.hibernate.controller.BarangController;
 import javax.swing.JOptionPane;
 
-
 public class BarangView extends javax.swing.JFrame {
- private BarangController barangController = new BarangController(this); 
-    
+
+    private BarangController barangController = new BarangController(this);
+
     public BarangView() {
         initComponents();
         barangController.tampilData();
@@ -251,11 +251,16 @@ public class BarangView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInsertActionPerformed
-        if(cbKategori.getSelectedIndex()!=0 && cbSatuan.getSelectedIndex()!=0){
-            getBarangController().saveBarang();
-        } else{
-            JOptionPane.showMessageDialog(null, "Pilih kategori dan satuan terlebih dahulu", "Info", JOptionPane.WARNING_MESSAGE);
+        if (!txtKode.getText().trim().isEmpty() && !txtNama.getText().trim().isEmpty() && !txtHarga.getText().trim().isEmpty() && !txtStok.getText().trim().isEmpty()) {
+            if (cbKategori.getSelectedIndex() != 0 && cbSatuan.getSelectedIndex() != 0) {
+                getBarangController().saveBarang();
+            } else {
+                JOptionPane.showMessageDialog(null, "Pilih kategori dan satuan terlebih dahulu", "Info", JOptionPane.WARNING_MESSAGE);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Lengkapi data", "Info", JOptionPane.WARNING_MESSAGE);
         }
+
     }//GEN-LAST:event_buttonInsertActionPerformed
 
     private void buttonResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetActionPerformed
@@ -263,10 +268,14 @@ public class BarangView extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonResetActionPerformed
 
     private void buttonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateActionPerformed
-        if(cbKategori.getSelectedIndex()!=0 && cbSatuan.getSelectedIndex()!=0){
-            getBarangController().updateBarang();
-        } else{
-            JOptionPane.showMessageDialog(null, "Pilih kategori dan satuan terlebih dahulu", "Info", JOptionPane.WARNING_MESSAGE);
+        if (!txtKode.getText().trim().isEmpty() && !txtNama.getText().trim().isEmpty() && !txtHarga.getText().trim().isEmpty() && !txtStok.getText().trim().isEmpty()) {
+            if (cbKategori.getSelectedIndex() != 0 && cbSatuan.getSelectedIndex() != 0) {
+                getBarangController().updateBarang();
+            } else {
+                JOptionPane.showMessageDialog(null, "Pilih kategori dan satuan terlebih dahulu", "Info", JOptionPane.WARNING_MESSAGE);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Lengkapi data", "Info", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_buttonUpdateActionPerformed
 
@@ -358,7 +367,6 @@ public class BarangView extends javax.swing.JFrame {
 //    public JTable getTabelData() {
 //        return getTableData();
 //    }
-    
     /**
      * @return the barangController
      */
@@ -372,24 +380,26 @@ public class BarangView extends javax.swing.JFrame {
     public void setBarangController(BarangController barangController) {
         this.barangController = barangController;
     }
-    
-     public javax.swing.JTable getTableData(){
+
+    public javax.swing.JTable getTableData() {
         return tableData;
     }
-    
+
     public javax.swing.JButton getButtonInsert() {
         return buttonInsert;
     }
+
     public javax.swing.JButton getButtonUpdate() {
         return buttonUpdate;
     }
+
     public javax.swing.JButton getButtonDelete() {
         return buttonDelete;
     }
+
     public javax.swing.JButton getButtonReset() {
         return buttonReset;
     }
-   
 
     /**
      * @return the txtID
