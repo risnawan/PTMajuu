@@ -293,6 +293,7 @@ public class BarangView extends javax.swing.JFrame {
         char enter = evt.getKeyChar();
         if (!(Character.isDigit(enter))) {
             evt.consume();
+            
         }
     }//GEN-LAST:event_txtHargaKeyTyped
 
