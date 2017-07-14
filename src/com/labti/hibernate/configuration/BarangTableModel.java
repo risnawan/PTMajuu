@@ -39,7 +39,7 @@ public class BarangTableModel extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) { 
         Material barang = barangs.get(rowIndex); 
         switch (columnIndex) { 
-            case 0: return barang.getKode();
+            case 0: return barang.getId();
             case 1: return barang.getNama(); 
             case 2: return barang.getKategori();
             case 3: return barang.getSatuan();

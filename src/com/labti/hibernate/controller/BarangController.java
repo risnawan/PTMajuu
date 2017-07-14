@@ -56,7 +56,7 @@ public class BarangController {
     public void saveBarang() { 
         Material barang = new Material();
         try { 
-        barang.setKode(this.barangView.getTxtKode().getText());
+        barang.setId(this.barangView.getTxtKode().getText());
         barang.setNama(this.barangView.getTxtNama().getText()); 
         barang.setKategori(this.barangView.getCbKategori().getSelectedItem().toString());
         barang.setSatuan(this.barangView.getCbSatuan().getSelectedItem().toString());
@@ -101,7 +101,7 @@ public class BarangController {
             JOptionPane.showMessageDialog(null, "Barang belum dipilih", "error",JOptionPane.ERROR_MESSAGE);
         } 
         else { Material barang = new Material(); 
-        barang.setKode(this.barangView.getTxtKode().getText());
+        barang.setId(this.barangView.getTxtKode().getText());
         int pilih = JOptionPane.showConfirmDialog(null, "Apakah data ingin dihapus ?", "Warning", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE); 
         if (pilih == JOptionPane.YES_OPTION) { barangDao.delete(barang); 
         JOptionPane.showMessageDialog(null, "Data Berhasil di Hapus", "info", JOptionPane.INFORMATION_MESSAGE);

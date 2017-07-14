@@ -5,16 +5,12 @@
  */
 package com.labti.hibernate.view;
 
-import com.labti.hibernate.configuration.HibernateUtil;
+//import com.labti.hibernate.configuration.HibernateUtil;
 import com.labti.hibernate.controller.BarangController;
-//import javax.swing.JButton;
-//import javax.swing.JComboBox;
-//import javax.swing.JTable;
-//import javax.swing.JTextField;
+
 
 public class BarangView extends javax.swing.JFrame {
  private BarangController barangController = new BarangController(this); 
-//    BarangController cbt;
     
     public BarangView() {
         initComponents();
@@ -51,8 +47,8 @@ public class BarangView extends javax.swing.JFrame {
         tableData = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
         txtStok = new javax.swing.JTextField();
-        cbKategori = new javax.swing.JComboBox<String>();
-        cbSatuan = new javax.swing.JComboBox<String>();
+        cbKategori = new javax.swing.JComboBox<>();
+        cbSatuan = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
 
@@ -149,13 +145,18 @@ public class BarangView extends javax.swing.JFrame {
                 "No.", "ID Material", "Nama", "Kategori", "Satuan", "Harga", "Stok"
             }
         ));
+        tableData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableDataMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tableData);
 
         jLabel9.setText("Stok");
 
-        cbKategori.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Besi", "Kayu", "Batu", "Baja", "Semen", "Pasir", "Tripleks", "Cat", "Aluminium", "Pipa", "Perkakas" }));
+        cbKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Besi", "Kayu", "Batu", "Baja", "Semen", "Pasir", "Tripleks", "Cat", "Aluminium", "Pipa", "Perkakas" }));
 
-        cbSatuan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kilogram", "Meter", "Liter", "Zak", "Biji", "Batang", "Pack", " " }));
+        cbSatuan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kilogram", "Meter", "Liter", "Zak", "Biji", "Batang", "Pack", " " }));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 204));
 
@@ -324,6 +325,11 @@ public class BarangView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHargaActionPerformed
 
+    private void tableDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDataMouseClicked
+        // TODO add your handling code here:
+        getBarangController().show();
+    }//GEN-LAST:event_tableDataMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -409,34 +415,6 @@ public class BarangView extends javax.swing.JFrame {
      public javax.swing.JTable getTableData(){
         return tableData;
     }
-
-//    public JTextField getID(){
-//        return getTxtID();
-//    }
-//    
-//    public JTextField getNama(){
-//        return getTxtNama();
-//    }
-//    
-//    public JComboBox getKategori(){
-//        return getCbKategori();
-//    }
-//    
-//    public JComboBox getSatuan(){
-//        return getCbSatuan();
-//    }
-//    
-//    public JTextField getHarga(){
-//        return getTxtHarga();
-//    }
-//
-//    public JTextField getStok(){
-//        return getTxtStok();
-//    }
-    
-//    public JTextField getCariBarang(){
-//        return getTxtCariBarang();
-//    }
     
     public javax.swing.JButton getButtonInsert() {
         return buttonInsert;
